@@ -1,1 +1,21 @@
-
+services:
+  - type: web
+    name: telegram-forwarder
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: SESSION_STRING
+        sync: false
+      - key: SOURCE_CHANNELS
+        sync: false
+      - key: DEST_CHANNEL
+        sync: false
+      - key: FORWARD_MODE
+        value: files
+      - key: SEND_METHOD
+        value: copy
